@@ -4,14 +4,12 @@ using UnityEngine.SceneManagement;
 
 
 public class SceneLoader : MonoBehaviour {
+	
+	 void FixedUpdate()
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            { SceneManager.LoadScene("GameplayTest1", LoadSceneMode.Single); }
+            
+    }
 }

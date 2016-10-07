@@ -19,4 +19,6 @@ public class Wait : MonoBehaviour
         objectToActivate.SetActive(true);
 
     }
+    
+
 }
