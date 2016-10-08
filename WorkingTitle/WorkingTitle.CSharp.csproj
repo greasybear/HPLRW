@@ -85,7 +85,6 @@
     <Compile Include="Assets\Instructions.cs" />
     <Compile Include="Assets\SceneLoader.cs" />
     <Compile Include="Assets\Wait.cs" />
-    <Compile Include="Assets\WaitForIt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
