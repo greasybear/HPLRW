@@ -13,7 +13,7 @@ public class TermInput : MonoBehaviour {
 	void Start () {
 		input = gameObject.GetComponent<InputField>();
 		se = new InputField.SubmitEvent();
-		output.text = Terminal.TerminalArt.initConsole(); 
+		//output.text = Terminal.TerminalArt.initConsole(); 
 		//Listener Callback 	
 		se.AddListener(SubmitInput);
 		input.onEndEdit = se;

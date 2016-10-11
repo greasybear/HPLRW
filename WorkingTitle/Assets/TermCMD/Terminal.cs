@@ -1,4 +1,5 @@
 using System.Collections.Generic; 
+using System.Linq; 
 
 namespace Terminal{ 
     public class VirtualFileSystem:Dictionary<string, Dictionary<string, object>>{
@@ -49,10 +50,19 @@ namespace Terminal{
                 return @"telnet: access remote connections";
                         
             }
+            else if (s.Equals("ls")){
+                string _s = string.Join("\n", FileSystem.ls(FileSystem.ROOT).ToArray()); 
+                return _s;
+    
+            }
 
             else{
                 return s;
             }
         }
+    
+    public static void engineParser(string s){
+
+    }
     }
 }

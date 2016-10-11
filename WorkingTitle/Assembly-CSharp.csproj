@@ -51,8 +51,10 @@
      <Compile Include="Assets\CameraAnim.cs" />
      <Compile Include="Assets\Instructions.cs" />
      <Compile Include="Assets\SceneLoader.cs" />
+     <Compile Include="Assets\TermCMD\FileSystem.cs" />
      <Compile Include="Assets\TermCMD\Terminal.cs" />
      <Compile Include="Assets\TermInput.cs" />
+     <Compile Include="Assets\Typer.cs" />
      <Compile Include="Assets\Wait.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
