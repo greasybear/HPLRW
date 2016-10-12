@@ -87,6 +87,7 @@
 'Assets/CameraAnim.cs'
 'Assets/Instructions.cs'
 'Assets/SceneLoader.cs'
+'Assets/TermCMD/BlinkCursor.cs'
 'Assets/TermCMD/FileSystem.cs'
 'Assets/TermCMD/LogoFade.cs'
 'Assets/TermCMD/Terminal.cs'

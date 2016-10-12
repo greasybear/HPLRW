@@ -17,7 +17,7 @@ Satalite A     . . . ESTABLISHED
 Satalite B   . . . ESTABLISHED
 Site Kadath     . . . ESTABLISHED
 Site Hyperbora . . . ESTABLISHED 
-Site Xoth     █ █ █  Unknwon
+Site Xaath     █ █ █  unknown
 
 WELCOME TO
                                                                                                        
@@ -30,9 +30,10 @@ a Samata-Albright venture:";
                                                                             
 
                                                                              
-    return cmd;
-        } 
+        return cmd;
+        }
     }
+
   public class Parser{
         public static string termParse(string s){
             //Parse commands for text based prompts and responses 
