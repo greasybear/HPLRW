@@ -2,27 +2,34 @@ using System.Collections.Generic;
 using System.Linq; 
 
 namespace Terminal{ 
+    public static class delayPrint{
+        public static string[] cmds = { "telnet"};
+    }
     public class VirtualFileSystem:Dictionary<string, Dictionary<string, object>>{
     }
     public class TerminalArt{
         public static string initConsole(){
-        string cmd = @"   .-.
-                        (o.o)
-                        |=|
-                        __|__
-                    //.=|=.\\
-                    // .=|=. \\
-                    \\ .=|=. //
-                    \\(_=_)//
-                        (:| |:)
-                        || ||
-                        () ()
-                        || ||
-                        || ||
-                    l42 ==' '==
-                    SKULL -&- BONES OS
-                    V SPOOKY
-                    SYSTEM Init 2.0";
+        string cmd = @"
+MOUNT fs / . . .
+                    Initiated 
+COM Check var/system/init.d 
+Satalite A     . . . ESTABLISHED
+Satalite B   . . . ESTABLISHED
+Site Kadath     . . . ESTABLISHED
+Site Hyperbora . . . ESTABLISHED 
+Site Xoth     █ █ █  Unknwon
+
+WELCOME TO
+                                                                                                       
+    _/      _/  _/      _/  _/_/_/_/_/  _/    _/                _/_/      _/_/_/   
+   _/_/  _/_/    _/  _/        _/      _/    _/              _/    _/  _/          
+  _/  _/  _/      _/          _/      _/_/_/_/              _/    _/    _/_/       
+ _/      _/      _/          _/      _/    _/              _/    _/        _/      
+_/      _/      _/          _/      _/    _/      _/        _/_/    _/_/_/         
+a Samata-Albright venture:";
+                                                                            
+
+                                                                             
     return cmd;
         } 
     }
@@ -31,14 +38,15 @@ namespace Terminal{
             //Parse commands for text based prompts and responses 
             if (s.Contains("telnet")){
                 return @"CONNECTION='wired'
-                        DESCRIPTION='BroadMau'
+                        DESCRIPTION='SatLINK'
                         INTERFACE='eth0'
                         IP='static'
                         ADDR='10.10.10.5'
                         GATEWAY='10.10.10.1'
-                        DNS='10.10.10.1'
-                        WPA_DRIVER='wext'
+                        ENDSAT=KADATH
                         NETCFG_DEBUG=yes
+                        GEOMETRY=TETRAHED
+                        
 
                         connection: Faild
                         ...";
@@ -47,13 +55,14 @@ namespace Terminal{
                 return "";
             }
             else if (s.Equals("help")){
-                return @"telnet: access remote connections";
+                return @"
+                telnet: access remote connections
+                ls    : list the contents of the current directory";
                         
             }
             else if (s.Equals("ls")){
                 string _s = string.Join("\n", FileSystem.ls(FileSystem.ROOT).ToArray()); 
-                return _s;
-    
+                return _s; 
             }
 
             else{
