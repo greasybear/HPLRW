@@ -10,10 +10,10 @@ public class LogoFade: MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		//Does not work unless you first set alpha to 0 
+		//regardless of what it is set to in ui...
 		img.CrossFadeAlpha(0.0f, .004f, false);
 		StartCoroutine("FadeIn");
-		Debug.Log(img.color);
 	}
 
 	void Awake(){
@@ -22,7 +22,7 @@ public class LogoFade: MonoBehaviour {
 
 	public IEnumerator FadeIn(){
 		yield return new WaitForSeconds(startDelay);
-		img.CrossFadeAlpha(1.0f, 5.0f, false);
+		img.CrossFadeAlpha(1.0f, 5.0f, false); //aplha, duration, ???
 	}
 	
 }
