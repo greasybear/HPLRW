@@ -5,9 +5,7 @@ public class PickUp2 : MonoBehaviour
 {
     GameObject grabObject;
     float grabObjectSize;
-
-
-
+  
     void Start ()
     {
 
@@ -50,8 +48,10 @@ public class PickUp2 : MonoBehaviour
     void Update ()
     { if (Input.GetKeyDown(KeyCode.E))
         {
+            
             if (grabObject == null)
                 GetAThing(GetMouseHoverObject(5));
+                
             else
                 DropObject();
         }

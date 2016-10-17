@@ -86,6 +86,9 @@
     <Compile Include="Assets\Instructions.cs" />
     <Compile Include="Assets\PickUp.cs" />
     <Compile Include="Assets\PickUp2.cs" />
+    <Compile Include="Assets\PickUp3.cs" />
+    <Compile Include="Assets\PickUp4.cs" />
+    <Compile Include="Assets\Pickupable.cs" />
     <Compile Include="Assets\Rotator.cs" />
     <Compile Include="Assets\SceneLoader.cs" />
     <Compile Include="Assets\Wait.cs" />

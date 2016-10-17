@@ -13,7 +13,7 @@ public class PickUp : MonoBehaviour
             transform.parent = pickItUp;
 
         }
-        else if (Input.GetKeyDown(KeyCode.P))
+        else if (Input.GetKeyDown(KeyCode.E))
         {
 
             transform.parent = null;
