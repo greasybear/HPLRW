@@ -4,12 +4,34 @@ using System.Collections;
 public class Instructions : MonoBehaviour
 {
     public string text;
-    
-    void OnGUI()
-    {  if (Input.GetKeyDown(KeyCode.Space))
-        
+    bool display = false;
+
+
+
+    void OnTriggerEnter(Collider hit)
+    {
+        if (hit.transform.tag == "Player")
         {
-            GUI.Box(new Rect(10, 10, 10, 20), text);
+            display = true;
+        }
+    }
+
+
+    void OnTriggerExit(Collider hit)
+    {
+        if (hit.transform.tag == "Player")
+        {
+            display = false;
+
+        }
+
+    }
+
+    void OnGUI()
+    {
+        if (display == true)
+        {
+            GUI.Box(new Rect(Screen.width / 2 - 75, Screen.height - 100, 150, 30), text);
         }
     }
 
