@@ -18,6 +18,7 @@ public class Typer : MonoBehaviour {
 		textComp = GetComponent<Text>();
 	}
 
+
 	public IEnumerator TypeIn(){
 		yield return new WaitForSeconds(startDelay);
 

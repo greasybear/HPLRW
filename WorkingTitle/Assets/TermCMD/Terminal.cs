@@ -62,7 +62,7 @@ a Samata-Albright venture:
                 telnet: access remote connections
                 ls    : list the contents of the current directory";
                         
-            }
+            } 
             else if (s.Equals("ls")){
                 string _s = string.Join("\n", FileSystem.ls(FileSystem.ROOT).ToArray()); 
                 return _s; 

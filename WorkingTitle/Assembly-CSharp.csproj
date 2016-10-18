@@ -55,9 +55,10 @@
      <Compile Include="Assets\TermCMD\FileSystem.cs" />
      <Compile Include="Assets\TermCMD\LogoFade.cs" />
      <Compile Include="Assets\TermCMD\Scroller.cs" />
+     <Compile Include="Assets\TermCMD\TermInput.cs" />
+     <Compile Include="Assets\TermCMD\TermTextShaddow.cs" />
      <Compile Include="Assets\TermCMD\Terminal.cs" />
      <Compile Include="Assets\TermCMD\Typer.cs" />
-     <Compile Include="Assets\TermInput.cs" />
      <Compile Include="Assets\Wait.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
