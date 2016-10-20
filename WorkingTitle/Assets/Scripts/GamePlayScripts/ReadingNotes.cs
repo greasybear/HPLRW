@@ -1,23 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.ImageEffects;
 
 public class ReadingNotes : MonoBehaviour
 
 {
-
-
+    private GameObject playerCam;
+    
     public GameObject noteReader;
 
     public bool areYouReading;
 
     private bool areYouClose;
 
+    public GameObject PlayerCam;
 
     void Start()
     {
         areYouReading = false;
-
+        playerCam = GameObject.Find("FirstPersonCharacter");
     }
     void OnTriggerEnter(Collider hit)
     {
@@ -43,7 +45,9 @@ public class ReadingNotes : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G) && areYouClose == true)
         {
             turnOnReader();
+            playerCam.GetComponent<Blur>().enabled = ! playerCam.GetComponent<Blur>().enabled;
         }
+        
 
     }
     void readerRabbit(bool state)
@@ -63,6 +67,7 @@ public class ReadingNotes : MonoBehaviour
         if (areYouReading)
         {
             areYouReading = false; //Changes the value
+            
         }
         else
         {
