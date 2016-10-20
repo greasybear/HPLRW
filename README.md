@@ -14,11 +14,11 @@ Prefab_Imports:   more unity made scripts
 
 Scenes
   
-  GameplayeTest1:   data for the only scene
+    GameplayeTest1:   data for the only scene
     
-    Animations
+        Animations
     
-    Lights
+        Lights
 
 Scripts
     
