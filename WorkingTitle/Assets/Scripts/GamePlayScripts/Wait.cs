@@ -24,7 +24,7 @@ public class Wait : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            GetComponent<Wait>().enabled = false;
+            Destroy(GetComponent<Wait>());
             //objectToActivate.SetActive(false);
             Destroy(objectToActivate);
         }
