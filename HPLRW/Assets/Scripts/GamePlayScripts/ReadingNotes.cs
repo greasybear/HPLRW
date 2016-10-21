@@ -6,6 +6,8 @@ using UnityStandardAssets.ImageEffects;
 public class ReadingNotes : MonoBehaviour
 
 {
+    public GameObject instructionText;
+
     private GameObject playerCam;
     
     public GameObject noteReader;
@@ -20,6 +22,7 @@ public class ReadingNotes : MonoBehaviour
     {
         areYouReading = false;
         playerCam = GameObject.Find("FirstPersonCharacter");
+        instructionText = GameObject.Find("Paper_test");
     }
     void OnTriggerEnter(Collider hit)
     {
@@ -46,6 +49,8 @@ public class ReadingNotes : MonoBehaviour
         {
             turnOnReader();
             playerCam.GetComponent<Blur>().enabled = ! playerCam.GetComponent<Blur>().enabled;
+            instructionText.GetComponent<Instructions>().enabled = !instructionText.GetComponent<Instructions>().enabled;
+
         }
         
 
