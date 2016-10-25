@@ -6,6 +6,8 @@ public class ElevatorMover : MonoBehaviour {
     Animator Elevator;
     Animator anim;
     private bool inElevator;
+    public GameObject rider;
+    public GameObject theBox;
 
     void Start()
     {
@@ -15,11 +17,13 @@ public class ElevatorMover : MonoBehaviour {
     {
         if (hit.transform.tag == "Player")
             inElevator = true;
+        rider.transform.parent = theBox.transform;
     }
     void OnTriggerExit(Collider hit)
     {
         if (hit.transform.tag == "Player")
             inElevator = false;
+        rider.transform.parent = null;
     }
 
 
@@ -31,6 +35,7 @@ public class ElevatorMover : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E) && inElevator == true)
         {
             anim.SetBool("GoingDown", true);
+            
             
 
         }
