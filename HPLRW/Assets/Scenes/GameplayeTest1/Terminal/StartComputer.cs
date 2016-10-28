@@ -6,13 +6,15 @@ public class StartComputer : MonoBehaviour {
     public GameObject objectToDisable;
     public bool onOff;
     public bool areYouClose;
+    public GameObject instructionText;
 
 	
 	void Start () {
         onOff = false;
         areYouClose = false;
-	
-	}
+        instructionText = GameObject.Find("Terminaltable");
+
+    }
 
     void OnTriggerEnter(Collider hit)
     {
@@ -29,16 +31,24 @@ public class StartComputer : MonoBehaviour {
         if (Input.GetButtonDown("Cancel") && areYouClose==true)
             computerOn();
         if (onOff == true)
-        { objectToDisable.SetActive(false);
-            objectToEnable.SetActive(true);}
+        {
+            objectToDisable.SetActive(false);
+            objectToEnable.SetActive(true);
+            Cursor.visible = true;
+            
+        }
         else
-        { objectToDisable.SetActive(true);
-            objectToEnable.SetActive(false);}
+        {
+            objectToDisable.SetActive(true);
+            objectToEnable.SetActive(false);
+            Cursor.visible = false;
+        }
 	}
     public void computerOn()
     { if (onOff)
         { onOff = false; }
         else { onOff = true; }
+        instructionText.GetComponent<Instructions>().enabled = !instructionText.GetComponent<Instructions>().enabled;
     }
     
 

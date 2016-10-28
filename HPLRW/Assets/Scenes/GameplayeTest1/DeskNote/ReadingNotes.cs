@@ -6,7 +6,7 @@ using UnityStandardAssets.ImageEffects;
 public class ReadingNotes : MonoBehaviour
 
 {
-    public GameObject instructionText;
+    private GameObject instructionText;
 
     private GameObject playerCam;
     
