@@ -1,5 +1,7 @@
 using System.Collections.Generic; 
+using UnityEngine;
 using System.Linq; 
+
 
 namespace Terminal{ 
     public static class delayPrint{
@@ -66,6 +68,13 @@ a Samata-Albright venture:
             else if (s.Equals("ls")){
                 string _s = string.Join("\n", FileSystem.ls(FileSystem.ROOT).ToArray()); 
                 return _s; 
+            }
+            else if (s.Equals("magic")){
+                GameObject fps = GameObject.Find("FPSController");
+		        Inventory inventory = fps.GetComponent <Inventory>();
+                
+                return string.Join("\n", 
+                    inventory.cliObjects.Select(i => i.name).ToArray());
             }
 
             else{

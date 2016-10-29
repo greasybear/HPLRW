@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour {
 // Use this for initialization
-	public List<string> cliObjects = new List<string>();
+	public List<GameObject> cliObjects = new List<GameObject>();
 
 	void Start () {
 	
@@ -14,4 +14,5 @@ public class Inventory : MonoBehaviour {
 	void Update () {
 	
 	}
+
 }
