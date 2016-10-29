@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class cliAble : MonoBehaviour {
-
 	// Use this for initialization
 	void Start () {
 		GameObject fps = GameObject.Find("FPSController");
