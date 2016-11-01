@@ -10,18 +10,63 @@ public class TermInput : MonoBehaviour {
 	public Text output;
 	//Terminal.VirtualFileSystem vfs = new Terminal.VirtualFileSystem(); 
 	public float typeDelay = 0.004f;
+    public bool areYouClose;
+    public GameObject objectToEnable;
+    public GameObject objectToDisable;
+    public bool onOff;
+    public GameObject instructionText;
 
-	// Use this for initialization
-	void Start () {
-		input = gameObject.GetComponent<InputField>();
+    // Use this for initialization
+    void Start () {
+        instructionText = GameObject.Find("Terminaltable");
+        input = gameObject.GetComponent<InputField>();
 		se = new InputField.SubmitEvent();
 		//output.text = Terminal.TerminalArt.initConsole(); 
 		//Listener Callback 	
 		se.AddListener(runSubmit);
 		input.onEndEdit = se;
-	}
+        
+    }
+    void OnTriggerEnter(Collider hit)
+    {
+        if (hit.transform.tag == "Player")
+            areYouClose = true;
+    }
+    void OnTriggerExit(Collider hit)
+    {
+        if (hit.transform.tag == "Player")
+            areYouClose = false;
+    }
+    void Update()
+    {
+        if (Input.GetButtonDown("Cancel") && areYouClose == true)
+            computerOn();
+        if (onOff == true)
+        {
+            objectToDisable.SetActive(false);
+            objectToEnable.SetActive(true);
+            Cursor.visible = true;
+            input.ActivateInputField();
 
-	public IEnumerator  SubmitInput(string arg0){
+        }
+        else
+        {
+            objectToDisable.SetActive(true);
+            objectToEnable.SetActive(false);
+            Cursor.visible = false;
+            input.DeactivateInputField();
+            //input.enabled = false; //this doesn't work, still need to disable this the input
+
+        }
+    }
+    public void computerOn()
+    {
+        if (onOff)
+        { onOff = false; }
+        else { onOff = true; }
+        instructionText.GetComponent<Instructions>().enabled = !instructionText.GetComponent<Instructions>().enabled;
+    }
+    public IEnumerator  SubmitInput(string arg0){
 		string termOutput = Terminal.Parser.termParse(arg0); 
 		string currentText = output.text;
 		
@@ -32,7 +77,7 @@ public class TermInput : MonoBehaviour {
 				yield return new WaitForSeconds(typeDelay);
 			}
          	input.text = "> ";
-			input.ActivateInputField();
+			//input.ActivateInputField();
 		
 		} else {
 			string newText = (arg0.Equals("clear")) ? "" 
