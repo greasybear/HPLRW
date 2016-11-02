@@ -15,6 +15,7 @@ public class TermInput : MonoBehaviour {
     public GameObject objectToDisable;
     public bool onOff;
     public GameObject instructionText;
+    
 
     // Use this for initialization
     void Start () {
@@ -47,6 +48,8 @@ public class TermInput : MonoBehaviour {
             objectToEnable.SetActive(true);
             Cursor.visible = true;
             input.ActivateInputField();
+            input.enabled = true;
+           
 
         }
         else
@@ -54,10 +57,12 @@ public class TermInput : MonoBehaviour {
             objectToDisable.SetActive(true);
             objectToEnable.SetActive(false);
             Cursor.visible = false;
-            input.DeactivateInputField();
-            //input.enabled = false; //this doesn't work, still need to disable this the input
+            //input.DeactivateInputField();
+            input.enabled = false;
+            
 
         }
+       
     }
     public void computerOn()
     {

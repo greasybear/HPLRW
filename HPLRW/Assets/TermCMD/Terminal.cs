@@ -1,9 +1,10 @@
 using System.Collections.Generic; 
 using UnityEngine;
-using System.Linq; 
+using System.Linq;
 
 
-namespace Terminal{ 
+namespace Terminal{
+    //public class Terminal : MonoBehaviour { public GameObject door; 
     public static class delayPrint{
         public static string[] cmds = { "telnet"};
     }
@@ -41,7 +42,8 @@ a Samata-Albright venture:
   public class Parser{
         public static string termParse(string s){
             //Parse commands for text based prompts and responses 
-            if (s.Contains("telnet")){
+            if (s.Contains("telnet"))
+            {
                 return @"CONNECTION='wired'
                         DESCRIPTION='SatLINK'
                         INTERFACE='eth0'
@@ -56,28 +58,43 @@ a Samata-Albright venture:
                         connection: Faild
                         ...";
             }
-            else if (s.Equals("clear")){
+            else if (s.Equals("clear"))
+            {
                 return "";
             }
-            else if (s.Equals("help")){
+            else if (s.Equals("help"))
+            {
                 return @"
                 telnet: access remote connections
                 ls    : list the contents of the current directory";
-                        
-            } 
-            else if (s.Equals("ls")){
-                string _s = string.Join("\n", FileSystem.ls(FileSystem.ROOT).ToArray()); 
-                return _s; 
+
             }
-            else if (s.Equals("magic")){
+            else if (s.Equals("ls"))
+            {
+                string _s = string.Join("\n", FileSystem.ls(FileSystem.ROOT).ToArray());
+                return _s;
+            }
+            else if (s.Equals("magic"))
+            {
                 GameObject fps = GameObject.Find("FPSController");
-		        Inventory inventory = fps.GetComponent <Inventory>();
-                
-                return string.Join("\n", 
+                Inventory inventory = fps.GetComponent<Inventory>();
+
+                return string.Join("\n",
                     inventory.cliObjects.Select(i => i.name).ToArray());
             }
+            else if (s.Equals("Please"))
+            {
+                return @"Ah ah ah, you didn't say the magic word!";
+            }
+            else if (s.Equals("Del Door"))
+            {
+                return @"Completed";
+                GameObject door = GameObject.Find("BlockingDoor");
+                Delete delete = door.GetComponent<Delete>();
+                
 
-            else{
+            }
+            else {
                 return s;
             }
         }
