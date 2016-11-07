@@ -62,11 +62,14 @@ a Samata-Albright venture:
             {
                 return "";
             }
-            else if (s.Equals("help"))
+            else if (s.Equals("HELP"))
             {
                 return @"
                 telnet: access remote connections
-                ls    : list the contents of the current directory";
+                ls    : list the contents of the current directory
+                magic : list of accessible objects
+                magicrm objectName: remove object from telnet
+                create objectName: instantiate desired object";
 
             }
             else if (s.Equals("ls"))
@@ -76,13 +79,13 @@ a Samata-Albright venture:
             }
             else if (s.Equals("magic"))
             {
-                 GameObject fps = GameObject.Find("TerminalCamera");
-                  Inventory inventory = fps.GetComponent<Inventory>(); //need to find a way to properly access this script 
+                GameObject fps = GameObject.Find("TerminalCamera");
+                Inventory inventory = fps.GetComponent<Inventory>(); //need to find a way to properly access this script 
 
-                
-                    return string.Join("\n",
-                 inventory.cliObjects.Select(edit => edit.name).ToArray());
-                
+
+                return string.Join("\n",
+             inventory.cliObjects.Select(edit => edit.name).ToArray());
+
 
 
             }
@@ -97,12 +100,17 @@ a Samata-Albright venture:
                 Object.Destroy(door);
 
                 return @"Completed";
-
-                
-
-
-
             }
+            else if (s.Equals("create ladder"))
+            {
+                GameObject ladder = Object.Instantiate(Resources.Load("LadderCube")) as GameObject;
+                
+                return @"created";
+            }
+
+
+
+
             else {
                 return s;
             }
