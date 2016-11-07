@@ -76,22 +76,31 @@ a Samata-Albright venture:
             }
             else if (s.Equals("magic"))
             {
-                GameObject fps = GameObject.Find("FPSController");
-                Inventory inventory = fps.GetComponent<Inventory>();
+                 GameObject fps = GameObject.Find("TerminalCamera");
+                  Inventory inventory = fps.GetComponent<Inventory>(); //need to find a way to properly access this script 
 
-                return string.Join("\n",
-                    inventory.cliObjects.Select(i => i.name).ToArray());
+                
+                    return string.Join("\n",
+                 inventory.cliObjects.Select(edit => edit.name).ToArray());
+                
+
+
             }
             else if (s.Equals("Please"))
             {
                 return @"Ah ah ah, you didn't say the magic word!";
             }
-            else if (s.Equals("Del Door"))
+            else if (s.Equals("magicrm BlockingDoor"))
             {
-                return @"Completed";
+
                 GameObject door = GameObject.Find("BlockingDoor");
-                Delete delete = door.GetComponent<Delete>();
+                Object.Destroy(door);
+
+                return @"Completed";
+
                 
+
+
 
             }
             else {
