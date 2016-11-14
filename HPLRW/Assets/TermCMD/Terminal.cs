@@ -40,7 +40,9 @@ a Samata-Albright venture:
     }
 
   public class Parser{
-        public static string termParse(string s){
+        public static string termParse(string s)
+        
+        {
             //Parse commands for text based prompts and responses 
             if (s.Contains("telnet"))
             {
@@ -97,22 +99,51 @@ a Samata-Albright venture:
             {
 
                 GameObject door = GameObject.Find("BlockingDoor");
-                Object.Destroy(door);
 
+                door.SetActive(false);
                 return @"Completed";
             }
+
+            //else if (s.Contains("delete"))
+            //{
+            //    GameObject door = GameObject.Find(s);
+            //    door.SetActive(false);
+
+
+
+
+            //    return @"removed";
+            //}
             else if (s.Equals("create ladder"))
             {
                 GameObject ladder = Object.Instantiate(Resources.Load("LadderCube")) as GameObject;
                 
                 return @"created";
             }
+            else if (s.Equals ("activate elevator"))
+            
+            {   
+                GameObject elevator = GameObject.Find("Elevator");
+                ElevatorMover elevatormover = elevator.GetComponent<ElevatorMover>();
+                elevatormover.enabled = true;
 
+                return @"elevator activated";
+               
+            }
+            //else if (s.Equals ("show walls"))
+            //{ GameObject wall = GameObject.Find("ShadowMaze");
+            //    Object shadows = Object.Fin("ShadowWall");
+
+            //    return @"revealed";
+
+            //}
+            
 
 
 
             else {
-                return s;
+                 return s;
+              
             }
         }
     
