@@ -43,6 +43,7 @@ a Samata-Albright venture:
         public static string termParse(string s)
         
         {
+            string[] s_arr = s.Split();
             //Parse commands for text based prompts and responses 
             if (s.Contains("telnet"))
             {
@@ -95,25 +96,23 @@ a Samata-Albright venture:
             {
                 return @"Ah ah ah, you didn't say the magic word!";
             }
-            else if (s.Equals("magicrm BlockingDoor"))
-            {
+            //else if (s.Equals("magicrm BlockingDoor"))
+            //{
 
-                GameObject door = GameObject.Find("BlockingDoor");
+            //    GameObject door = GameObject.Find("BlockingDoor");
+
+            //    door.SetActive(false);
+            //    return @"Completed";
+            //}
+
+            else if (s_arr[0].Equals("delete"))  //&& s_arr[1] == Inventory) 
+            {   
+                GameObject door = GameObject.Find(s_arr[1]);
 
                 door.SetActive(false);
-                return @"Completed";
+
+                return @"removed";
             }
-
-            //else if (s.Contains("delete"))
-            //{
-            //    GameObject door = GameObject.Find(s);
-            //    door.SetActive(false);
-
-
-
-
-            //    return @"removed";
-            //}
             else if (s.Equals("create ladder"))
             {
                 GameObject ladder = Object.Instantiate(Resources.Load("LadderCube")) as GameObject;
@@ -130,6 +129,7 @@ a Samata-Albright venture:
                 return @"elevator activated";
                
             }
+         
             //else if (s.Equals ("show walls"))
             //{ GameObject wall = GameObject.Find("ShadowMaze");
             //    Object shadows = Object.Fin("ShadowWall");
