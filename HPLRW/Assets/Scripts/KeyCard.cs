@@ -23,6 +23,7 @@ public class KeyCard : MonoBehaviour {
         {
             GameObject door = GameObject.Find("CardDoor");
             CardDoorAnim cardy = door.GetComponent<CardDoorAnim>();
+            Destroy(door.GetComponent<Instructions>());
             cardy.gotCard = true;
             
             gameObject.SetActive(false);

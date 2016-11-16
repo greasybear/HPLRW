@@ -72,7 +72,8 @@ a Samata-Albright venture:
                 ls    : list the contents of the current directory
                 magic : list of accessible objects
                 magicrm objectName: remove object from telnet
-                create objectName: instantiate desired object";
+                create cube: instantiate cube object
+                elevator: deactivated";
 
             }
             else if (s.Equals("ls"))
@@ -105,7 +106,7 @@ a Samata-Albright venture:
             //    return @"Completed";
             //}
 
-            else if (s_arr[0].Equals("delete"))  //&& s_arr[1] == Inventory) 
+            else if (s_arr[0].Equals("magicrm"))  //&& s_arr[1] == Inventory) 
             {   
                 GameObject door = GameObject.Find(s_arr[1]);
 
@@ -113,7 +114,7 @@ a Samata-Albright venture:
 
                 return @"removed";
             }
-            else if (s.Equals("create ladder"))
+            else if (s.Equals("create cube"))
             {
                 GameObject ladder = Object.Instantiate(Resources.Load("LadderCube")) as GameObject;
                 
